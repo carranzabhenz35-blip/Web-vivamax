@@ -1,139 +1,125 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html>
+<html>
 <head>
-  <title>BhenzFlix VIVAMAX</title>  <style>
-    body {
-      background:#0b0b0b;
-      color:white;
-      font-family:sans-serif;
-      margin:0;
-    }
+<title>🔥 BHENZ VIVAMAX</title>
 
-    h1 {
-      text-align:center;
-      margin-top:10px;
-    }
+<style>
+body {
+  background: #000;
+  color: white;
+  font-family: Arial;
+  margin: 0;
+  padding: 0;
+}
 
-    /* INTRO */
-    #intro{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      background:black;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      z-index:9999;
-    }
+h1 {
+  text-align: center;
+  padding: 10px;
+}
 
-    .logo{
-      font-size:50px;
-      color:red;
-      animation: zoomFade 3s ease forwards;
-      text-shadow: 0 0 20px red, 0 0 40px red;
-    }
+h2 {
+  padding-left: 10px;
+}
 
-    @keyframes zoomFade{
-      0%{transform: scale(0.5); opacity:0;}
-      50%{transform: scale(1.2); opacity:1;}
-      100%{transform: scale(1); opacity:0;}
-    }
+.search {
+  width: 90%;
+  margin: 10px auto;
+  display: block;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
 
-    /* SEARCH */
-    #search{
-      width:80%;
-      padding:10px;
-      margin:10px auto;
-      display:block;
-      border-radius:10px;
-      border:none;
-    }
+.album {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+}
 
-    /* GRID */
-    .grid {
-      display:flex;
-      flex-wrap:wrap;
-      gap:15px;
-      justify-content:center;
-    }
+.movie {
+  width: 120px;
+  text-align: center;
+  cursor: pointer;
+}
 
-    .card {
-      width:160px;
-      cursor:pointer;
-    }
+.movie img {
+  width: 100%;
+  border-radius: 10px;
+}
 
-    .card img {
-      width:100%;
-      border-radius:10px;
-    }
+video {
+  width: 95%;
+  display: block;
+  margin: 10px auto;
+  border-radius: 10px;
+}
+</style>
 
-    .card p {
-      text-align:center;
-      font-size:14px;
-    }
+</head>
 
-    video {
-      width:90%;
-      margin:20px auto;
-      display:block;
-      border-radius:10px;
-    }
+<body>
 
-    #loading{
-      text-align:center;
-      display:none;
-    }
+<h1>🔥 BHENZ VIVAMAX</h1>
 
-  </style></head><body><!-- INTRO --><div id="intro">
-  <h1 class="logo">🔥 BHENZFLIX</h1>
-</div><h1>🔥 BHENZ VIVAMAX</h1><input type="text" id="search" placeholder="Search movie..." onkeyup="searchMovie()"><div class="grid"><div class="card" onclick="play('https://www.dropbox.com/scl/fi/ws7s2h3ml7ynci81a4bxv/Salsa-Ni-L-2024-HollyMovieHD.mp4?dl=1')">
-<img src="https://i.imgur.com/eyvBqjc.png"><p>Salsa Ni L</p></div><div class="card" onclick="play('https://www.dropbox.com/scl/fi/y349w4ksvh52y1qurwudr/Sanaol.Pulubi.720p.mp4?dl=1')">
-<img src="https://i.imgur.com/eyvBqjc.png"><p>Sanaol Pulubi</p></div><div class="card" onclick="play('https://www.dropbox.com/scl/fi/ndc8y7xlxh0jrofpm3nio/Sandwich.2023.1080p.WEBRip.mp4?dl=1')">
-<img src="https://i.imgur.com/eyvBqjc.png"><p>Sandwich</p></div><div class="card" onclick="play('https://www.dropbox.com/scl/fi/n2usc8k6c2v9jr3bzoz60/Sarap.Mong.Patayin.2021.1080p.WEB-DL.AAC2.0.x264.mkv?dl=1')">
-<img src="https://i.imgur.com/eyvBqjc.png"><p>Sarap Mong Patayin</p></div><div class="card" onclick="play('https://www.dropbox.com/scl/fi/oloyg789to9fjjeqn3eyh/Sapul-2023.mp4?dl=1')">
-<img src="https://i.imgur.com/eyvBqjc.png"><p>Sapul</p></div><div class="card" onclick="play('https://www.dropbox.com/scl/fi/s5hqg2oo9gcihkp6jxbls/SEKSI-Pantasya-at-Pelikula-2024-X-Philippines.mp4?dl=1')">
-<img src="https://i.imgur.com/eyvBqjc.png"><p>Seksi Pantasya</p></div><div class="card" onclick="play('https://www.dropbox.com/scl/fi/v1nnb5j9z6fyj8mci6vr1/Selinas.Gold.2022.720p.VMAX.mkv?dl=1')">
-<img src="https://i.imgur.com/eyvBqjc.png"><p>Selinas Gold</p></div><div class="card" onclick="play('https://www.dropbox.com/scl/fi/m98hvmzszhuurdcvaifhm/Serbidoras.mp4?dl=1')">
-<img src="https://i.imgur.com/eyvBqjc.png"><p>Serbidoras</p></div><div class="card" onclick="play('https://www.dropbox.com/scl/fi/796h0ymm3x4tw6hnkqpib/Sex-Games.mp4?dl=1')">
-<img src="https://i.imgur.com/eyvBqjc.png"><p>Sex Games</p></div><div class="card" onclick="play('https://www.dropbox.com/scl/fi/bcor09zv14c0t78x0qqcs/Showroom.2022.VMAX.720p..mkv?dl=1')">
-<img src="https://i.imgur.com/eyvBqjc.png"><p>Showroom</p></div><div class="card" onclick="play('https://www.dropbox.com/scl/fi/qzsz35kt9wk0h6ew2en5y/Sila-ay-akin.mp4?dl=1')">
-<img src="https://i.imgur.com/eyvBqjc.png"><p>Sila ay Akin</p></div><div class="card" onclick="play('https://www.dropbox.com/scl/fi/htrubtebl97sfphj50o74/Sisid-Marino.mp4?dl=1')">
-<img src="https://i.imgur.com/eyvBqjc.png"><p>Sisid Marino</p></div><div class="card" onclick="play('https://www.dropbox.com/scl/fi/se7e5tknzszmbzpyv0fwm/Manila-by-Night-1980-HollyMovieHD.mp4?dl=1')">
-<img src="https://i.imgur.com/eyvBqjc.png"><p>Manila by Night</p></div></div><p id="loading">Loading movie...</p><video id="player" controls autoplay></video>
+<input class="search" placeholder="Search movie..." onkeyup="searchMovie(this.value)">
+
+<!-- PLAYER -->
+<video id="player" controls></video>
+
+<!-- VIVAMAX ALBUM -->
+<h2>🔥 VIVAMAX</h2>
+<div class="album" id="movieList">
+
+  <div class="movie" onclick="playVideo('https://dl.dropboxusercontent.com/scl/fi/6f823oaqpc0l20q6obkk0/Balik-Taya.mkv')">
+    <img src="https://i.imgur.com/pI891mM.png">
+    <p>Balik Taya</p>
+  </div>
+
+  <div class="movie" onclick="playVideo('https://dl.dropboxusercontent.com/scl/fi/p694q7kgkijikwuotn7j8/Balinsasayaw.mp4')">
+    <img src="https://i.imgur.com/pI891mM.png">
+    <p>Balinsasayaw</p>
+  </div>
+
+  <div class="movie" onclick="playVideo('https://dl.dropboxusercontent.com/scl/fi/93im18niuw9bk8wl64hoz/Bisyo.mp4')">
+    <img src="https://i.imgur.com/pI891mM.png">
+    <p>Bisyo</p>
+  </div>
+
+  <div class="movie" onclick="playVideo('https://dl.dropboxusercontent.com/scl/fi/qq4vux3v34kmapc9uub2s/Butas.mp4')">
+    <img src="https://i.imgur.com/pI891mM.png">
+    <p>Butas</p>
+  </div>
+
+  <div class="movie" onclick="playVideo('https://dl.dropboxusercontent.com/scl/fi/5xuu0oxzf0e342r7ddxqx/Call-me-Alma.mkv')">
+    <img src="https://i.imgur.com/pI891mM.png">
+    <p>Call Me Alma</p>
+  </div>
+
+</div>
 
 <script>
 
-// INTRO HIDE
-setTimeout(()=>{
-  document.getElementById("intro").style.display="none";
-},3000);
-
-// PLAY FUNCTION
-function play(url){
-  const player = document.getElementById("player");
-  const loading = document.getElementById("loading");
-
-  loading.style.display = "block";
-  player.src = url;
-
-  player.onloadeddata = () => {
-    loading.style.display = "none";
-  };
-
-  player.scrollIntoView({ behavior: "smooth" });
+function playVideo(link) {
+  var player = document.getElementById("player");
+  player.src = link;
+  player.play();
 }
 
-// SEARCH
-function searchMovie(){
-  let input = document.getElementById("search").value.toLowerCase();
-  let cards = document.getElementsByClassName("card");
+function searchMovie(value) {
+  let movies = document.querySelectorAll(".movie");
 
-  for(let i=0;i<cards.length;i++){
-    let title = cards[i].innerText.toLowerCase();
-    cards[i].style.display = title.includes(input) ? "block" : "none";
-  }
+  movies.forEach(m => {
+    let title = m.innerText.toLowerCase();
+    if (title.includes(value.toLowerCase())) {
+      m.style.display = "block";
+    } else {
+      m.style.display = "none";
+    }
+  });
 }
 
-</script></body>
+</script>
+
+</body>
 </html>
