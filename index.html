@@ -9,7 +9,6 @@ body {
   color: white;
   font-family: Arial;
   margin: 0;
-  padding: 0;
 }
 
 h1 {
@@ -17,21 +16,25 @@ h1 {
   padding: 10px;
 }
 
-h2 {
-  padding-left: 10px;
-}
-
-.search {
-  width: 90%;
-  margin: 10px auto;
-  display: block;
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
+.album-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 }
 
 .album {
-  display: flex;
+  width: 150px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.album img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.movies {
+  display: none;
   flex-wrap: wrap;
   gap: 10px;
   padding: 10px;
@@ -54,69 +57,81 @@ video {
   margin: 10px auto;
   border-radius: 10px;
 }
+
+.back {
+  padding: 10px;
+  cursor: pointer;
+  color: red;
+}
 </style>
 
 </head>
 
 <body>
 
-<h1>🔥 BHENZ VIVAMAX</h1>
-
-<input class="search" placeholder="Search movie..." onkeyup="searchMovie(this.value)">
+<h1>🔥 BHENZ FLIX</h1>
 
 <!-- PLAYER -->
 <video id="player" controls></video>
 
-<!-- VIVAMAX ALBUM -->
-<h2>🔥 VIVAMAX</h2>
-<div class="album" id="movieList">
+<!-- ALBUM VIEW -->
+<div id="albums" class="album-container">
 
-  <div class="movie" onclick="playVideo('https://dl.dropboxusercontent.com/scl/fi/6f823oaqpc0l20q6obkk0/Balik-Taya.mkv')">
+  <div class="album" onclick="openAlbum()">
     <img src="https://i.imgur.com/pI891mM.png">
-    <p>Balik Taya</p>
+    <p>VIVAMAX</p>
   </div>
 
-  <div class="movie" onclick="playVideo('https://dl.dropboxusercontent.com/scl/fi/p694q7kgkijikwuotn7j8/Balinsasayaw.mp4')">
-    <img src="https://i.imgur.com/pI891mM.png">
-    <p>Balinsasayaw</p>
-  </div>
+</div>
 
-  <div class="movie" onclick="playVideo('https://dl.dropboxusercontent.com/scl/fi/93im18niuw9bk8wl64hoz/Bisyo.mp4')">
-    <img src="https://i.imgur.com/pI891mM.png">
-    <p>Bisyo</p>
-  </div>
+<!-- MOVIE LIST -->
+<div id="movieSection" style="display:none;">
 
-  <div class="movie" onclick="playVideo('https://dl.dropboxusercontent.com/scl/fi/qq4vux3v34kmapc9uub2s/Butas.mp4')">
-    <img src="https://i.imgur.com/pI891mM.png">
-    <p>Butas</p>
-  </div>
+  <div class="back" onclick="goBack()">⬅ Back</div>
 
-  <div class="movie" onclick="playVideo('https://dl.dropboxusercontent.com/scl/fi/5xuu0oxzf0e342r7ddxqx/Call-me-Alma.mkv')">
-    <img src="https://i.imgur.com/pI891mM.png">
-    <p>Call Me Alma</p>
+  <div class="movies" id="movies">
+
+    <div class="movie" onclick="playVideo('https://dl.dropboxusercontent.com/scl/fi/6f823oaqpc0l20q6obkk0/Balik-Taya.mkv')">
+      <img src="https://i.imgur.com/pI891mM.png">
+      <p>Balik Taya</p>
+    </div>
+
+    <div class="movie" onclick="playVideo('https://dl.dropboxusercontent.com/scl/fi/p694q7kgkijikwuotn7j8/Balinsasayaw.mp4')">
+      <img src="https://i.imgur.com/pI891mM.png">
+      <p>Balinsasayaw</p>
+    </div>
+
+    <div class="movie" onclick="playVideo('https://dl.dropboxusercontent.com/scl/fi/93im18niuw9bk8wl64hoz/Bisyo.mp4')">
+      <img src="https://i.imgur.com/pI891mM.png">
+      <p>Bisyo</p>
+    </div>
+
+    <div class="movie" onclick="playVideo('https://dl.dropboxusercontent.com/scl/fi/qq4vux3v34kmapc9uub2s/Butas.mp4')">
+      <img src="https://i.imgur.com/pI891mM.png">
+      <p>Butas</p>
+    </div>
+
   </div>
 
 </div>
 
 <script>
 
+function openAlbum() {
+  document.getElementById("albums").style.display = "none";
+  document.getElementById("movieSection").style.display = "block";
+  document.getElementById("movies").style.display = "flex";
+}
+
+function goBack() {
+  document.getElementById("albums").style.display = "flex";
+  document.getElementById("movieSection").style.display = "none";
+}
+
 function playVideo(link) {
   var player = document.getElementById("player");
   player.src = link;
   player.play();
-}
-
-function searchMovie(value) {
-  let movies = document.querySelectorAll(".movie");
-
-  movies.forEach(m => {
-    let title = m.innerText.toLowerCase();
-    if (title.includes(value.toLowerCase())) {
-      m.style.display = "block";
-    } else {
-      m.style.display = "none";
-    }
-  });
 }
 
 </script>
